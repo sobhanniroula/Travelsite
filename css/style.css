@@ -1,0 +1,11 @@
+.mt-20 {
+    margin-top: 2rem;
+}
+
+footer {
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
