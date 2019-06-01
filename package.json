@@ -1,0 +1,38 @@
+{
+  "name": "travelsite",
+  "version": "1.0.0",
+  "description": "A website for travel lovers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sobhanniroula/Travelsite.git"
+  },
+  "keywords": [
+    "Travel",
+    "html",
+    "css",
+    "javascript",
+    "bootstrap",
+    "nodejs",
+    "express",
+    "ajax",
+    "restful",
+    "api",
+    "mongodb"
+  ],
+  "author": "Sobhan Niroula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sobhanniroula/Travelsite/issues"
+  },
+  "homepage": "https://github.com/sobhanniroula/Travelsite#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.5.12",
+    "multer": "^1.4.1",
+    "uniqid": "^5.0.3"
+  }
+}
