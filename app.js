@@ -39,4 +39,18 @@ app.get('/sight', async (req, resp) => {
     })
 })
 
+
+let isLoggedIn = true;
+app.get('/admin', (req, resp) => {
+    if(isLoggedIn) {
+        resp.render('admin');
+    } else {
+        resp.redirect('/login');
+    }
+})
+
+app.get('/login', (req, resp) => {
+    resp.render('login');
+})
+
 app.listen(3000, () => console.log('Listening to the server on port 3000...'));
