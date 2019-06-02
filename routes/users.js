@@ -2,6 +2,7 @@ let User = require('../models/users').User;
 let express = require('express');
 let router = express.Router();
 let bcrypt = require('bcrypt');
+let auth = require('../controllers/auth');
 
 
 router.post('/login', async (req, resp) => {
@@ -11,11 +12,17 @@ router.post('/login', async (req, resp) => {
     if (user.length > 0) {
         let comparisonResult = await bcrypt.compare(password, user[0].password);
         if (comparisonResult) {
-            resp.send('Logged In');
+            let token = auth.generateToken(user[0]);
+            resp.cookie('auth_token', token);
+            resp.send({
+                redirectURL: '/admin'
+            });
         } else {
+            resp.status(400);
             resp.send('Rejected1');
         }
     } else {
+        resp.status(400);
         resp.send('Rejected2');
     }
 })

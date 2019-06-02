@@ -2,11 +2,13 @@ let express = require('express');
 let app = express();
 let mongoose = require('mongoose');
 let multer = require('multer');
+let cookieParser = require('cookie-parser');
 let postsRouter = require('./routes/posts');
 let callbackRequestsRouter = require('./routes/callback-requests');
 let emailsRouter = require('./routes/emails');
 let usersRouter = require('./routes/users');
 let Post = require('./models/posts').Post;
+let auth = require('./controllers/auth');
 
 app.set('view engine', 'ejs');
 
@@ -22,6 +24,7 @@ app.use(multer({storage: imageStorage}).single('imageFile'));
 // Here used to be all the routes, which are now transferred to the posts.js file inside routes folder
 
 app.use(express.static('public'));
+app.use(cookieParser());
 
 app.use('/posts', postsRouter);
 app.use('/callback-requests', callbackRequestsRouter);
@@ -40,9 +43,9 @@ app.get('/sight', async (req, resp) => {
 })
 
 
-let isLoggedIn = true;
 app.get('/admin', (req, resp) => {
-    if(isLoggedIn) {
+    let token = req.cookies['auth_token'];
+    if(token && auth.checkToken(token)) {
         resp.render('admin');
     } else {
         resp.redirect('/login');
