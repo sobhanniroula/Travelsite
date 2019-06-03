@@ -5,7 +5,7 @@ let createImageUrl = document.querySelector('#create-image-url');
 let createText = document.querySelector('#create-text');
 let createImageFile = document.querySelector('#create-image-file');
 
-createForm.addEventListener('submit', (e) => {
+createForm.addEventListener('submit', function(e) {
     e.preventDefault();
     let text = createText.value;
     let data = new FormData();

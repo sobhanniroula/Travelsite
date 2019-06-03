@@ -16,10 +16,18 @@ router.get('/:id', async (req, resp) => {
 router.post('/', authMiddleware, async (req, resp) => {
     let reqBody = req.body;
     let imgPath;
+    //let ig = reqBody.imageURL.replace('\\', '/');
+    //let igp = (req.file.path).replace('\\', '/');
     if(reqBody.imageURL) {
+        //if(ig) {
         imgPath = reqBody.imageURL;
+        //imgPath = ig;
+        //imgPath = reqBody.imageUrl;
     } else {
         imgPath = req.file.path.substring(req.file.path.indexOf('/'), req.file.path.length);
+        //igp = req.file.path.replace('\\', '/');
+        //imgPath = igp.substring(igp.indexOf('/'), igp.length);
+        //imgPath = req.file.path;
     }
 
     let newPost = new Post({
@@ -39,7 +47,7 @@ router.delete('/:id', authMiddleware, async (req, resp) => {
     let id = req.params.id;
     await Post.deleteOne({id: id});
     resp.send('Deleted!!!');
-})
+});
 
 router.put('/:id', authMiddleware, async (req, resp) => {
     let id = req.params.id;

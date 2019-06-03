@@ -1,4 +1,3 @@
-
 let addPostBtn = document.querySelector('.create-post-btn'); 
 let logOutBtn = document.querySelector('.log-out-btn'); 
 
@@ -15,7 +14,6 @@ addPostBtn.addEventListener('click', function() {
     let createTab = document.getElementById('v-pills-create-post');
     createTab.classList.add('show');
     createTab.classList.add('active');
-
 })
 
 

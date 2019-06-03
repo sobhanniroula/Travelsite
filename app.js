@@ -2,13 +2,13 @@ let express = require('express');
 let app = express();
 let mongoose = require('mongoose');
 let multer = require('multer');
-let cookieParser = require('cookie-parser');
 let postsRouter = require('./routes/posts');
 let callbackRequestsRouter = require('./routes/callback-requests');
 let emailsRouter = require('./routes/emails');
 let usersRouter = require('./routes/users');
 let Post = require('./models/posts').Post;
 let auth = require('./controllers/auth');
+let cookieParser = require('cookie-parser');
 
 app.set('view engine', 'ejs');
 
@@ -16,8 +16,8 @@ mongoose.connect('mongodb://localhost/travelsite', { useNewUrlParser: true });
 app.use(express.json());
 
 let imageStorage = multer.diskStorage({
-    destination: (req, file, clbk) => clbk(null, 'public/img'),
-    filename: (req, file, clbk) => clbk(null, file.originalname)
+    destination: (req, file, cb) => cb(null, 'public/img'),
+    filename: (req, file, cb) => cb(null, file.originalname)
 })
 app.use(multer({storage: imageStorage}).single('imageFile'));
 

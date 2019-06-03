@@ -8,7 +8,7 @@ router.get('/', authMiddleware, async (req, resp) => {
     resp.send(await CallbackRequest.find());
 });
 
-router.post('/'), async (req, resp) => {
+router.post('/', async (req, resp) => {
     let reqBody = req.body;
     let newRequest = new CallbackRequest({
         id: uniqid(),
@@ -17,11 +17,11 @@ router.post('/'), async (req, resp) => {
     })
     await newRequest.save();
     resp.send('Accepted Callback Request');
-};
+});
 
-router.delete('/:id'), authMiddleware, async (req, resp) => {
+router.delete('/:id', authMiddleware, async (req, resp) => {
     await CallbackRequest.deleteOne({id: req.params.id});
     resp.send('Deleted Callback Request');
-};
+});
 
 module.exports = router;

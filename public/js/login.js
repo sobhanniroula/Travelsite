@@ -17,7 +17,7 @@ signInForm.addEventListener('submit', function(e) {
         }
         return resp.json();
     }).then((data) => {
-        window.location.href = data.redirectURL;
+        window.location.href = data.redirectUrl;
     }).catch(() => alert('Wrong Email or Password!!'));
 })
 

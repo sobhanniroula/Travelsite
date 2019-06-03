@@ -5,7 +5,7 @@ emailRequestForm.addEventListener('submit', function(e) {
     fetch('http://localhost:3000/emails', {
         method: 'POST',
         headers: {
-            'Content-Type': 'applicaton/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             name: document.querySelector('#name').value,

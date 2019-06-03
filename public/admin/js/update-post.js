@@ -8,8 +8,9 @@
     articlesBlock.addEventListener('click', async function(e) {
         if(e.target.classList.contains('btn-edit')) {
             id = e.target.parentNode.parentNode.querySelector('.id').value;
-            let postInfo = await fetch('http://localhost:3000/posts/' + id).then((resp) => resp.json()).then((data) => data)
-
+            let postInfo = await fetch('http://localhost:3000/posts/' + id)
+                                    .then((resp) => resp.json())
+                                        .then((data) => data)
             
             titleInp.value = postInfo.title;
             textArea.value = postInfo.text;

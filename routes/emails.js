@@ -8,7 +8,7 @@ router.get('/', authMiddleware, async (req, resp) => {
     resp.send(await Email.find());
 });
 
-router.post('/'), async (req, resp) => {
+router.post('/', async (req, resp) => {
     let reqBody = req.body;
     let newEmail = new Email({
         id: uniqid(),
@@ -19,11 +19,11 @@ router.post('/'), async (req, resp) => {
     })
     await newEmail.save();
     resp.send('Accepted Email contact');
-};
+});
 
-router.delete('/:id'), authMiddleware, async (req, resp) => {
+router.delete('/:id', authMiddleware, async (req, resp) => {
     await Email.deleteOne({id: req.params.id});
     resp.send('Deleted Email');
-};
+});
 
 module.exports = router;

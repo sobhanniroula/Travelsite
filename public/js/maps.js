@@ -7,7 +7,7 @@ let platform = new H.service.Platform({
 // Geo Search
 function landmarkGeocode() {
     let title = document.querySelector('h1').textContent;
-    let geocoder = platform.getGeocodingService(),
+    var geocoder = platform.getGeocodingService(),
       landmarkGeocodingParameters = {
         searchtext: title,
         jsonattributes : 1
@@ -21,25 +21,32 @@ function landmarkGeocode() {
   }
 
   function showMap(result) {
-    let location = result.response.view[0].result[0].location.displayPosition;
-    //console.log(result.response.view[0].result[0]);
-    //let location = result.response.view[0].result[0].place.locations[0].displayPosition;
+    //let location;
+    //let location = result.response.view[0].result[0].location.displayPosition;
+    console.log(result.response.view[0].result[0]);
+    let location = result.response.view[0].result[0].place.locations[0].displayPosition;
+
+    // if (location1) {
+    //   location = location1;
+    // } else {
+    //   location = location2;
+    // }
 
       // Obtain the default map types from the platform object:
     let defaultLayers = platform.createDefaultLayers();
 
     // Instantiate (and display) a map object:
     let map = new H.Map(
-    document.querySelector('.map'),
-    defaultLayers.normal.map,
-    {
-      zoom: 15,
-      center: { lat: location.latitude, lng: location.longitude }
+      document.querySelector('.map'),
+      defaultLayers.normal.map,
+      {
+        zoom: 15,
+        center: { lat: location.latitude, lng: location.longitude }
     });
 
     // Markers on the map:
     let marker = new H.map.Marker({lat: location.latitude, lng: location.longitude});
-  map.addObject(marker);
+    map.addObject(marker);
   
     // Create the default UI:
     let ui = H.ui.UI.createDefault(map, defaultLayers);
