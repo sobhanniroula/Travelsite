@@ -2,6 +2,10 @@
     margin-top: 2rem;
 }
 
+.mb-15 {
+    margin-bottom: 15px;
+}
+
 footer {
     height: 4rem;
     /* width: 100%;
@@ -75,6 +79,7 @@ footer>.container, footer .row {
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
     padding: 15px 50px;
+    margin-bottom: 30px;
 }
 
 .sight-container h1 {

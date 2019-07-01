@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     posts.forEach((post) => {
         let postHTML = `
-        <div class="col-4">
+        <div class="col-4 mb-15">
                     <div class="card">
                         <img src="${post.imageURL}" alt="${post.title}" class="card-img-top">
                         <div class="card-body">

@@ -12,7 +12,7 @@ let cookieParser = require('cookie-parser');
 
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://localhost/travelsite', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://dbadmin:mdbadminsobhan@cluster0-gkkhl.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
 app.use(express.json());
 
 let imageStorage = multer.diskStorage({
