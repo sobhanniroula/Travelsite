@@ -5,7 +5,7 @@ signInForm.addEventListener('submit', function(e) {
     e.preventDefault();
     let email = document.getElementById('sign-in-email').value;
     let password = document.getElementById('sign-in-password').value;
-    fetch('http://localhost:5000/users/login', {
+    fetch('0.0.0.0:process.env.PORT/users/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ registerForm.addEventListener('submit', function(e) {
     if(password !== rePassword) {
         return;
     }
-    fetch('http://localhost:5000/users/register', {
+    fetch('0.0.0.0:process.env.PORT/users/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

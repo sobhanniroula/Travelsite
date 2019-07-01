@@ -56,4 +56,4 @@ app.get('/login', (req, resp) => {
     resp.render('login');
 })
 
-app.listen(3000, () => console.log('Listening to the server on port 5000...'));
+app.listen(process.env.PORT, () => console.log('Listening to the server on port 5000...'));

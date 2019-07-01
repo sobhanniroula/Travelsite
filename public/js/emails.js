@@ -2,7 +2,7 @@ let emailRequestForm = document.querySelector('.email-request-form');
 
 emailRequestForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    fetch('http://localhost:5000/emails', {
+    fetch('0.0.0.0:process.env.PORT/emails', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
