@@ -19,7 +19,8 @@ router.post('/', authMiddleware, async (req, resp) => {
     if(reqBody.imageURL) {
         imgPath = reqBody.imageURL;
     } else {
-        imgPath = req.file.path.substring(req.file.path.indexOf('\\' || '/'), req.file.path.length);
+        imgPath = req.file.path.substring(req.file.path.indexOf('/'), req.file.path.length);
+        // imgPath = req.file.path.substring(req.file.path.indexOf('\\' || '/'), req.file.path.length);
     }
 
     let newPost = new Post({
