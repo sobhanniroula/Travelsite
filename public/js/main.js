@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 callMeForm.addEventListener('submit', function(e) {
     e.preventDefault();
     let phoneInp = callMeForm.querySelector('input');
-    fetch('0.0.0.0:process.env.PORT/callback-requests', {
+    fetch('process.env.PORT/callback-requests', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
