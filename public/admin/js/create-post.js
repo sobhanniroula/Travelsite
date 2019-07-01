@@ -16,7 +16,7 @@ createForm.addEventListener('submit', function(e) {
     data.append('description', text.substring(0, text.indexOf('.') + 1));
     data.append('imageFile', createImageFile.files[0]);
 
-    fetch('process.env.PORT/posts', {
+    fetch('https://travelsite-sobhan.herokuapp.com/posts', {
         method: 'POST',
         body: data
     }).then((response) => response.text()).then((data) => window.history.go());

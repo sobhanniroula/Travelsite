@@ -8,7 +8,7 @@
     articlesBlock.addEventListener('click', async function(e) {
         if(e.target.classList.contains('btn-edit')) {
             id = e.target.parentNode.parentNode.querySelector('.id').value;
-            let postInfo = await fetch('process.env.PORT/posts/' + id)
+            let postInfo = await fetch('https://travelsite-sobhan.herokuapp.com/posts/' + id)
                                     .then((resp) => resp.json())
                                         .then((data) => data)
             
@@ -26,7 +26,7 @@
 
     updateForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        fetch('process.env.PORT/posts/' + id, {
+        fetch('https://travelsite-sobhan.herokuapp.com/posts/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,5 +1,5 @@
 async function getPosts() {
-    return await fetch('process.env.PORT/posts')
+    return await fetch('https://travelsite-sobhan.herokuapp.com/posts')
                             .then((response) => response.json())
                             .then((data) => data);
 }

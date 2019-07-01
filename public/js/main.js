@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 callMeForm.addEventListener('submit', function(e) {
     e.preventDefault();
     let phoneInp = callMeForm.querySelector('input');
-    fetch('process.env.PORT/callback-requests', {
+    fetch('https://travelsite-sobhan.herokuapp.com/callback-requests', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

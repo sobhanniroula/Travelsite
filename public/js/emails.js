@@ -2,7 +2,7 @@ let emailRequestForm = document.querySelector('.email-request-form');
 
 emailRequestForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    fetch('process.env.PORT/emails', {
+    fetch('https://travelsite-sobhan.herokuapp.com/emails', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
